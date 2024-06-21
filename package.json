@@ -1,0 +1,34 @@
+{
+  "name": "tspts",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "default": "./dist/src/index.js"
+    },
+    "./testing": {
+      "types": "./dist/src/testing/index.d.ts",
+      "default": "./dist/src/testing/index.js"
+    }
+  },
+  "dependencies": {
+    "@typespec/compiler": "latest",
+    "typescript": "~5.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "eslint": "^8.45.0",
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "typescript-eslint": "^7.13.1"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "node --test ./dist/test/",
+    "lint": "eslint src/ test/ --report-unused-disable-directives --max-warnings=0",
+    "lint:fix": "eslint . --report-unused-disable-directives --fix"
+  },
+  "private": true
+}
